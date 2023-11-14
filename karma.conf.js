@@ -10,11 +10,13 @@ module.exports = function(config) {
 
     // frameworks to use
     // available frameworks: https://www.npmjs.com/search?q=keywords:karma-adapter
-    frameworks: ['jasmine'],
+    frameworks: ['jasmine', 'browserify'],
 
 
     // list of files / patterns to load in the browser
     files: [
+      'node_modules/angular/angular.js',
+      'src/*.js',
       'tests/*.test.js'
     ],
 
@@ -27,8 +29,8 @@ module.exports = function(config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://www.npmjs.com/search?q=keywords:karma-preprocessor
     preprocessors: {
+      'tests/*.test.js': [ 'browserify' ]
     },
-
 
     // test results reporter to use
     // possible values: 'dots', 'progress'
