@@ -7,11 +7,9 @@ module.exports = function(config) {
     // base path that will be used to resolve all patterns (eg. files, exclude)
     basePath: '',
 
-
     // frameworks to use
     // available frameworks: https://www.npmjs.com/search?q=keywords:karma-adapter
     frameworks: ['jasmine', 'browserify'],
-
 
     // list of files / patterns to load in the browser
     files: [
@@ -20,23 +18,39 @@ module.exports = function(config) {
       'tests/*.test.js'
     ],
 
-
     // list of files / patterns to exclude
     exclude: [
     ],
 
+    /*
+    plugins: [
+      require('karma-jasmine'),
+      require('karma-chrome-launcher'),
+      require('karma-jasmine-html-reporter'),
+      require('karma-coverage-istanbul-reporter')
+    ],
+    */
+
+    client:{
+      clearContext: false // leave Jasmine Spec Runner output visible in browser
+    },
 
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://www.npmjs.com/search?q=keywords:karma-preprocessor
     preprocessors: {
+      // 'src/*.js': 'coverage-istanbul',
       'tests/*.test.js': [ 'browserify' ]
     },
 
     // test results reporter to use
     // possible values: 'dots', 'progress'
     // available reporters: https://www.npmjs.com/search?q=keywords:karma-reporter
-    reporters: ['progress'],
+    reporters: ['progress', 'coverage-istanbul'],
 
+    coverageIstanbulReporter: {
+      reports: [ 'html', 'lcovonly' ],
+      fixWebpackSourcePaths: true
+    },
 
     // web server port
     port: 9876,
