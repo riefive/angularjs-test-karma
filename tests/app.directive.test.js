@@ -1,7 +1,5 @@
 var angular = require('angular');
-require('angular-mocks/ngMock'),
-require('angular-mocks/ngMockE2E'),
-require('angular-mocks/ngAnimateMock')
+require('angular-mocks/ngMock');
 
 describe('AngularJS directives', function() {
     var module = angular.mock.module;

@@ -1,7 +1,6 @@
 var angular = require('angular');
-require('angular-mocks/ngMock'),
-require('angular-mocks/ngMockE2E'),
-require('angular-mocks/ngAnimateMock')
+require('angular-mocks/ngMock');
+require('angular-mocks/ngAnimateMock');
 
 describe('Rest Controller', function() {
     var module = angular.mock.module;
